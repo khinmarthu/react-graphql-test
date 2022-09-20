@@ -1,0 +1,15 @@
+type Query {
+  tweetsByUserName(userName: String): [Tweet]
+}
+
+type Tweet {
+  id: ID # The unique id for the tweet.
+  createdAt: String # The time at which the tweet was published, in ISO-8601 extended offset date-time format.
+  text: String # The tweet content itself.
+  user: User # The User that posted this tweet.
+}
+
+type User {
+  id: ID # The unique id of this user.
+  userName: String # The name of this user.
+}
