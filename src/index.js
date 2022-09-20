@@ -4,6 +4,8 @@ import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import { Router } from 'react-router-dom';
+import history from './utils/history';
 
 import App from './App';
 
@@ -26,7 +28,9 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <App />
+    <Router history={history}>
+      <App />
+    </Router>
   </ApolloProvider>,
   document.getElementById('root')
 );
