@@ -10,7 +10,8 @@ class App extends Component {
     this.state = { userName: "", trigger: false, error: null };
   }
 
-  handleOnSubmit = () => {
+  handleOnSubmit = (e) => {
+    e.preventDefault();
     const { userName, trigger } = this.state;
     const trimUserName = userName?.trim();
     if (!trimUserName) {
@@ -30,7 +31,7 @@ class App extends Component {
     return (
     <div>
       <p className="tweets-analysis-service">Tweets Analysis Service </p>
-      <form id="input-form">
+      <form id="input-form" onSubmit={this.handleOnSubmit}>
         <div className="error-message">{error}</div>
         <div className="username-input-box"><input id="input-box" className="enter-user-name" onChange={this.handleOnChange} value={userName} placeholder={"Enter user name"}/></div>
         <div onClick={this.handleOnSubmit} className="submit-button"><span className="submit-button-text">SUBMIT</span></div>
